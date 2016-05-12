@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title><%= @page_title %></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">BlogDesine</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <!--<li><a href="/">Home</a></li>-->
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <span class="glyphicon glyphicon-user"> <%= current_user.username %></span>
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><%= link_to "Profile", "/#{current_user.username}" %></li>
+                <li><%= link_to "View Posts", "/#{current_user.username}/posts" %></li>
+                <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </li>
+          <% else %>
+            <li><%= link_to 'Signup', new_user_registration_path %></li>
+            <li><%= link_to 'Login', new_user_session_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container">
+  
+    <div class="container">
+      <div class="alert alert-info alert-dismissable" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <p><%= notice %></p>
+      </div>
+      <div class="alert alert-warning alert-dismissable" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <p><%= alert %></p>
+      </div>
+    </div>
+
+    <%= yield %>
+
+  </div>
+  
+  <footer>
+    <div class="container">
+      <p class="text-muted text-center">&copy; 2016 Desine.Co | Available under MIT License</p>
+    </div>
+  </footer>
+
+</body>
+</html>

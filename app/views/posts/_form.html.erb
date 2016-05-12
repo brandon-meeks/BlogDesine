@@ -1,0 +1,40 @@
+<div class="container">
+  <%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h5>
+        <%= pluralize(@post.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h5>
+      <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+          <div class="alert alert-danger">
+            <li><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><%= msg %></li>
+          </div>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h3>Create New Post</h3>
+            <%= f.hidden_field(:user_id, :value => current_user.id) %>
+            <%= f.hidden_field(:user_username, :value => current_user.username) %>
+            <div class="form-group">
+                <h4><%= f.label :title %></h4>
+                <%= f.text_field :title, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <h4><%= f.label :body %></h4>
+                <%= f.text_area :body, class: "form-control" %>
+            </div>
+            <div>
+            <%= f.submit "Submit Post", class: "btn btn-primary" %>
+            <%= link_to "Cancel", "/#{current_user.username}/posts", class: "btn btn-default" %>
+            </div>
+            
+        </div>
+    </div>
+  <% end %>
+  
+</div>

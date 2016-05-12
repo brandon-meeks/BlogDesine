@@ -1,0 +1,13 @@
+<% @page_title = "BlogDesine | " %>
+
+<div class="container">
+    <% if user_signed_in? %>
+        <%= link_to "Create Post", "/#{current_user.username}/posts/new", class: "btn btn-primary" %>
+    <% end %>
+
+<% @posts.each do |post| %>
+    <h4><%= post.title %></h4>
+    <p><%= post.body %></p>
+    <%= link_to 'Read More', post_path(post.id), class: "btn btn-primary" %>
+<% end %>
+</div>
