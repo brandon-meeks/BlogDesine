@@ -1,4 +1,4 @@
-<% @page_title = "BlogDesine | " %>
+<% @page_title = "BlogDesine" %>
 
 <div class="container">
     <% if user_signed_in? %>
@@ -8,6 +8,6 @@
 <% @posts.each do |post| %>
     <h4><%= post.title %></h4>
     <p><%= post.body %></p>
-    <%= link_to 'Read More', post_path(post.id), class: "btn btn-primary" %>
+    <%= link_to 'Read More', "/#{post.user_username}/#{post.slug}", class: "btn btn-primary" %>
 <% end %>
 </div>

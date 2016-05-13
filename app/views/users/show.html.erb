@@ -1,6 +1,9 @@
-<% @page_title = "BlogDesine | #{:username}" %>
+<% @page_title = "BlogDesine | #{@user.username}" %>
 
 <div class="container">
     <h3>Username: <%= @user.username %></h3>
     <p>Email: <%= @user.email %></p>
+    <% if current_user == @user %>
+        <%= link_to "Edit Profile", edit_user_registration_path %>
+    <% end %>
 </div>

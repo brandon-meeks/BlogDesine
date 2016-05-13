@@ -31,6 +31,14 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem "friendly_id", "~> 5.0.1"
 # Devise for user authentication
 gem 'devise'
+# User Authorization
+gem 'pundit'
+
+# Provides better errors in development
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
 
 # # Phusion Passenger Web Server
 # gem "passenger", ">= 5.0.25", require: "phusion_passenger/rack_handler"

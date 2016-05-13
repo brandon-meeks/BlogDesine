@@ -14,6 +14,7 @@ class PostsController < ApplicationController
     end
     
     def edit
+        # authorize @post, :update?
     end
     
     def create
@@ -29,6 +30,12 @@ class PostsController < ApplicationController
     end
     
     def update
+        authorize @post
+        if @post.save
+            redirect_to @post, flash[:success] = "Post updated successfully"
+        else
+            render 'edit'
+        end
     end
     
     def destroy

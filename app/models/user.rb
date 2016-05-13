@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :username, use: :slugged
   
+  def editor?
+    self.role == 'editor'
+  end
+  
 end
