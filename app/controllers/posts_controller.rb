@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-     before_filter :get_post, only: [ :show, :edit, :update, :destroy ]
+     before_filter :get_post, only: [ :show, :edit, :update ]
 
     def index
         user = User.friendly.find(params[:username])
@@ -22,7 +22,7 @@ class PostsController < ApplicationController
         
         if @post.save
             flash[:success] = "Post created successfully!"
-            redirect_to post_path(@post)
+            redirect_to user_posts_path
         else
             flash[:danger] = "Unable to create post"
             render 'edit'
@@ -40,8 +40,9 @@ class PostsController < ApplicationController
     
     def destroy
         @post = Post.destroy(params[:id])
-        
-        redirect_to user_posts_path
+        flash[:success] = "Post successfully destroyed"
+
+        redirect_to "/#{@post.user_username}/posts"
     end
     
     private

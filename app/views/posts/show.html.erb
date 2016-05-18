@@ -1,13 +1,24 @@
 <% @page_title = "#{@post.user_username}'s Blog | #{@post.title}" %>
 
-<h2><%= @post.title %></h2>
-<p class="text-muted"><%= @post.created_at %></p>
-<p><%= @post.body %></p>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="page-header">
+				<h1><%= @post.title %></h1>
+				<p class="text-muted">Written by: <%= @post.user_username %></p>
+				<p class="text-muted"><%= @post.created_at.strftime("Written on: %B %e, %Y") %></p>
+			</div>
+			<p><%= simple_format(@post.body) %></p>
 
-<% if user_signed_in? %>
-    <%= link_to "Edit Post", edit_post_path, class: "btn btn-primary" %>
-    <%= link_to "Delete Article", post_path, class: "btn btn-danger" , method: :delete, data: { confirm: 'Are you sure you want to delete the article?' } %>
-    <%= link_to "Back to Posts", "/#{@post.user_username}/posts", class: "btn btn-warning" %>
-<% else %>
-    <%= link_to "Back to Posts", "/#{@post.user_username}/posts", class: "btn btn-warning" %>
-<% end %>
+			<% if user_signed_in? %>
+				<div class="btn-group" role="group" aria-label="...">
+	    			<%= link_to "Edit Post", edit_post_path(@post), class: "btn btn-primary" %>
+	    			<%= link_to "Back to Posts", "/#{@post.user_username}/posts", class: "btn btn-warning" %>
+	    			<%= link_to "Delete Article", "/#{@post.user_username}/posts/#{@post.id}", class: "btn btn-danger" , method: :delete, data: { confirm: 'Are you sure you want to delete the article?' } %>
+	    		</div>
+			<% else %>
+    			<%= link_to "Back to Posts", post_path(@post), class: "btn btn-warning" %>
+			<% end %>
+		</div>
+	</div>
+</div>

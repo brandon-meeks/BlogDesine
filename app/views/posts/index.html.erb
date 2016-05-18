@@ -1,13 +1,18 @@
 <% @page_title = "BlogDesine" %>
 
 <div class="container">
-    <% if user_signed_in? %>
-        <%= link_to "Create Post", "/#{current_user.username}/posts/new", class: "btn btn-primary" %>
-    <% end %>
-
-<% @posts.each do |post| %>
-    <h4><%= post.title %></h4>
-    <p><%= post.body %></p>
-    <%= link_to 'Read More', "/#{post.user_username}/#{post.slug}", class: "btn btn-primary" %>
-<% end %>
+	<div class="row">
+		<div class="col-md-3">
+		    <% if user_signed_in? %>
+		        <%= link_to "Create Post", "/#{current_user.username}/posts/new", class: "btn btn-primary" %>
+		    <% end %>
+		</div>
+		<div class="col-md-9">
+			<% @posts.each do |post| %>
+			    <h2><%= post.title %></h2>
+			    <p><%= post.body.truncate_words(100, omission: '... (continued)') %></p>
+			    <%= link_to 'Read More', "/#{post.user_username}/#{post.slug}", class: "btn btn-primary" %>
+			<% end %>
+		</div>
+	</div>
 </div>

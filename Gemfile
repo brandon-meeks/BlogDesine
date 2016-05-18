@@ -33,6 +33,8 @@ gem "friendly_id", "~> 5.0.1"
 gem 'devise'
 # User Authorization
 gem 'pundit'
+# Pagination
+# gem 'will_paginate', '~> 3.1.0'
 
 # Provides better errors in development
 group :development do

@@ -22,11 +22,11 @@
             <%= f.hidden_field(:user_username, :value => current_user.username) %>
             <div class="form-group">
                 <h4><%= f.label :title %></h4>
-                <%= f.text_field :title, class: "form-control" %>
+                <%= f.text_field :title, class: "form-control input-lg" %>
             </div>
             <div class="form-group">
                 <h4><%= f.label :body %></h4>
-                <%= f.text_area :body, class: "form-control" %>
+                <%= f.text_area :body, rows: "20", class: "form-control" %>
             </div>
             <div>
             <%= f.submit "Submit Post", class: "btn btn-primary" %>
