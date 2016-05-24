@@ -88,9 +88,10 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
-    mailgun-ruby (1.1.0)
-      json (~> 1.8)
-      rest-client (~> 1.6)
+    mailgun_rails (0.8.0)
+      actionmailer (>= 3.2.13)
+      json (>= 1.7.7)
+      rest-client (>= 1.6.7)
     mime-types (3.0)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0221)
@@ -193,7 +194,7 @@ DEPENDENCIES
   friendly_id (~> 5.0.1)
   jbuilder (~> 2.0)
   jquery-rails
-  mailgun-ruby
+  mailgun_rails
   pg
   puma
   pundit

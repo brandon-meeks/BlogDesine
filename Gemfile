@@ -43,7 +43,8 @@ gem 'pundit'
 # Pagination
 # gem 'will_paginate', '~> 3.1.0'
 # Mailgun gem for sending email
-gem 'mailgun-ruby'
+# gem 'mailgun-ruby'
+gem 'mailgun_rails'
 
 # Provides better errors in development
 group :development do
