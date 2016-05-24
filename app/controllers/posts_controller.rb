@@ -22,7 +22,7 @@ class PostsController < ApplicationController
         
         if @post.save
             flash[:success] = "Post created successfully!"
-            redirect_to user_posts_path
+            redirect_to user_posts_path(current_user.username)
         else
             flash[:danger] = "Unable to create post"
             render 'edit'
