@@ -74,7 +74,7 @@ Rails.application.configure do
    authentication: 'plain',
    enable_starttls_auto: true,
    tls: true,
-   user_name: 'postmaster@appb11959eea92f4221a9ce7f87182b0b2e.mailgun.org',
+   user_name: 'postmaster@blogdesine.desine.co',
    password: 'Godfirst12!@'
   }
 
