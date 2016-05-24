@@ -75,7 +75,7 @@ Rails.application.configure do
    enable_starttls_auto: true,
    user_name: postmaster@appb11959eea92f4221a9ce7f87182b0b2e.mailgun.org,
    password: Godfirst12!@
-  # }
+  }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
