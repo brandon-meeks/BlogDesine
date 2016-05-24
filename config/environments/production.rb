@@ -66,11 +66,16 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default :charset => "utf-8"
-  config.action_mailer.delivery_method = :mailgun
-  config.action_mailer.mailgun_settings = {
-    api_key: 'key-a5c21a4370e7f27b23fed726e8fccc12',
-    domain: 'appb11959eea92f4221a9ce7f87182b0b2e.mailgun.org'
-  }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+   address: “smtp.mailgun.org”,
+   port: 465,
+   domain: appb11959eea92f4221a9ce7f87182b0b2e.mailgun.org,
+   authentication: “plain”,
+   enable_starttls_auto: true,
+   user_name: postmaster@appb11959eea92f4221a9ce7f87182b0b2e.mailgun.org,
+   password: Godfirst12!@
+  # }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
