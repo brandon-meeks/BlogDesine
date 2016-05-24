@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
          
   has_many :posts, dependent: :destroy
+
+  validates :username, uniqueness: true
+  validates :username, exclusion: { in: %w(admin webmaster),
+    message: "%{value} is reserved" }
          
   extend FriendlyId
   friendly_id :username, use: :slugged
