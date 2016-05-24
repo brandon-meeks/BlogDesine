@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   root 'pages#home'
   get '/:username' => 'users#show'
-  get '/:username/posts' => 'posts#index'
+  get '/:username/posts' => 'posts#index', as: 'user_posts'
   get '/:username/posts/new' => 'posts#new'
   post '/:username/posts/new' => 'posts#create'
   get '/:username/:id' => 'posts#show'
