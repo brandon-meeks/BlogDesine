@@ -68,10 +68,10 @@ Rails.application.configure do
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-   address: “smtp.mailgun.org”,
+   address: 'smtp.mailgun.org',
    port: 465,
    domain: 'appb11959eea92f4221a9ce7f87182b0b2e.mailgun.org',
-   authentication: “plain”,
+   authentication: 'plain',
    enable_starttls_auto: true,
    user_name: 'postmaster@appb11959eea92f4221a9ce7f87182b0b2e.mailgun.org',
    password: 'Godfirst12!@'
