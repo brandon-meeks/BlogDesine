@@ -17,7 +17,7 @@
 	    			<%= link_to "Delete Article", "/#{@post.user_username}/posts/#{@post.id}", class: "btn btn-danger" , method: :delete, data: { confirm: 'Are you sure you want to delete the article?' } %>
 	    		</div>
 			<% else %>
-    			<%= link_to "Back to Posts", post_path(@post), class: "btn btn-warning" %>
+    			<%= link_to "Back to Posts", "/#{@post.user_username}/posts", class: "btn btn-warning" %>
 			<% end %>
 		</div>
 	</div>
